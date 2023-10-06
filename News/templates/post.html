@@ -1,0 +1,16 @@
+<!--  наследуемся от шаблона default.html -->
+{% extends 'flatpages/default.html' %} 
+ 
+{% load custom_filters %}
+
+{% block title %}
+    Статья "{{ post.title|censor }}"
+{% endblock title %}
+ 
+{% block content %}
+    <br>
+    <h3>Статья: {{ post.title|censor }}</h3>
+    <h6>Дата публикации: {{ post.dateCreation|date:'d M Y h:m' }}</h6>
+    <br>
+    {{ post.text|censor }}
+{% endblock content %}

@@ -1,0 +1,21 @@
+<!--  наследуемся от шаблона default.html -->
+{% extends 'flatpages/default.html' %} 
+ 
+{% load custom_filters %}
+
+{% block title %}
+    Создание/редактирование статьи
+{% endblock title %}
+
+{% block content %}
+    <br>
+    <h4>Заполните все поля для создания/редактирования статьи</h4>
+    <br>
+    <form method="POST" style="display: flex; flex-wrap: wrap; align-items: flex-start; margin: 0 10px;">
+        {% csrf_token %} 
+        {{ form }}
+        <input type="submit" value="Добавить статью">
+    </form>
+    <br>
+    <a href="/news/"> <--Вернуться к новостям </a>
+{% endblock content %}
